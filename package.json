@@ -1,0 +1,30 @@
+{
+  "name": "magic-battery",
+  "version": "0.1.0",
+  "description": "Library that reads battery percentage of Magic devices connected to your Mac",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djagielo/magic-battery.git"
+  },
+  "keywords": [
+    "magic",
+    "battery",
+    "mac"
+  ],
+  "author": "Dariusz Jagielo <dariusz.jagielo@gmail.com> (https://djagielo.me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/djagielo/magic-battery/issues"
+  },
+  "homepage": "https://github.com/djagielo/magic-battery#readme",
+  "devDependencies": {
+    "rxjs": "^6.2.2",
+    "typescript": "^2.9.2"
+  }
+}
