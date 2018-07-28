@@ -1,6 +1,6 @@
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
-const { from, timer } = require('rxjs');
+const { from, throwError, timer } = require('rxjs');
 const { map, switchMap } = require('rxjs/operators');
 
 class BatteryPercentage {
@@ -11,11 +11,16 @@ class BatteryPercentage {
 };
 
 module.exports.getBatteryPercentageInfo = function (interval) {
-    return timer(0, interval).pipe(
-        switchMap(() => {
-            return readBatteryPercentage();
-        })
-    );
+    if (process.platform === 'darwin') {
+        return timer(0, interval).pipe(
+            switchMap(() => {
+                return readBatteryPercentage();
+            })
+        );
+    }
+    else {
+        return throwError('Only Mac is supported');
+    }
 }
 
 function readBatteryPercentage() {
